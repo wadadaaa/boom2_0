@@ -9,10 +9,12 @@
           {% if sellers %}
           <ul>
               {% for seller in sellers %}
-              <li><a href="{{ seller.get_absolute_url }}">{{ seller }}</a></li>
+              <li><a href="{% url seller seller.slug %}">{{ seller }}</a></li>
+              {{ seller.description|linebreaks }}
               {% endfor %}
           </ul>
           {% endif %}
+
 
 </body>
 </html>
