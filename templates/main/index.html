@@ -5,12 +5,13 @@
     <title>{{ seller.name }}</title>
 </head>
 <body>
-        <h2>Select a seller</h2>
+        <h2>{{ seller.name }}</h2>
+        {{ seller.description|linebreaks }}
           {% if sellers %}
           <ul>
               {% for seller in sellers %}
               <li><a href="{% url seller seller.slug %}">{{ seller }}</a></li>
-              {{ seller.description|linebreaks }}
+
               {% endfor %}
           </ul>
           {% endif %}
