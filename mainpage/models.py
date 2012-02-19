@@ -54,3 +54,8 @@ class Product(TimeStampedActivate):
 
     class Meta:
         ordering = ['-publish_at']
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('seller',(),
+            {'slug':self.slug})

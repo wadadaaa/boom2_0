@@ -2,10 +2,17 @@
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>Sellers</title>
+    <title>{{ seller.name }}</title>
 </head>
 <body>
         <h2>Select a seller</h2>
-     {{message}}
+          {% if sellers %}
+          <ul>
+              {% for seller in sellers %}
+              <li><a href="{{ seller.get_absolute_url }}">{{ seller }}</a></li>
+              {% endfor %}
+          </ul>
+          {% endif %}
+
 </body>
 </html>
