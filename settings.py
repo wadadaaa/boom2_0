@@ -1,6 +1,6 @@
 # Django settings for boom2_0 project.
 import os
-PROJECT_ROOT = os.path.dirname(__file__)
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.abspath(os.path.dirname(__file__)))) 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -13,12 +13,13 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '%s/../boom_db/boom2_0.sql' %PROJECT_ROOT,                      # Or path to database file if using sqlite3.
+        'NAME': os.path.join(PROJECT_ROOT, 'boom2_0.db'), # Or path to database file if using sqlite3.
 
     }
 }
 
 # Local time zone for this installation. Choices can be found here:
+
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
 # On Unix systems, a value of None will cause Django to use the same
@@ -48,7 +49,7 @@ MEDIA_ROOT = '%s/../public/media' %PROJECT_ROOT
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = 'http://media.boom2_0.dev'
+MEDIA_URL = 'http://media.boom2_0.dev/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -115,7 +116,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
-    'mainpage',
+    'apps.mainpage',
 )
 
 try:

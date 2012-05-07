@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from mainpage.models import  Seller, Product, Category, Subcategory
+from apps.mainpage.models import  Seller, Product, Category, Subcategory
 
 class SellerAdmin(admin.ModelAdmin):
     #name => slug automatical
