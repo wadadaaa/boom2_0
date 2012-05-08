@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+#for this, is needed to install PIL
+from easy_thumbnails.fields import ThumbnailerImageField 
 import datetime
 
 class PostManager(models.Manager):
@@ -22,6 +24,7 @@ class Category(models.Model):
 
 class Subcategory(models.Model):
     name = models.CharField(max_length=30)
+    category = models.ForeignKey(Category)
 
     def __unicode__(self):
         return self.name
@@ -42,16 +45,19 @@ class Seller(models.Model):
 
 class Product(TimeStampedActivate):
     name = models.CharField(max_length=100)
-    category = models.ForeignKey(Category)
+    subcategory = models.ForeignKey(Subcategory)
     description = models.TextField(blank=True, help_text="Describe product")
     price = models.DecimalField(max_digits=15, decimal_places=2)
     seller = models.ForeignKey(Seller)
     slug = models.SlugField(max_length=80)
     publish_at = models.DateTimeField(default=datetime.datetime.now())
+    photo = ThumbnailerImageField(upload_to="products",
+			 blank=True,
+			 resize_source = {'size': [185, 185],
+			 'crop': 'smart'} ,)
 
     def __unicode__(self):
         return self.name
 
     class Meta:
         ordering = ['-publish_at']
-

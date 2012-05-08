@@ -24,7 +24,7 @@ class ProductAdmin(admin.ModelAdmin):
         }),
         ('Description', {
             'fields':('description', 'price', 'seller' ,
-                'category')
+                'subcategory', 'photo')
         }),
         ('Publication', {
             'fields':('active', 'publish_at')
