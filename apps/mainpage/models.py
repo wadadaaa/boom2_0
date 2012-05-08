@@ -17,13 +17,14 @@ class TimeStampedActivate(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=64)
-    slug = models.SlugField(max_length=80)
+    #slug = models.SlugField(max_length=80)
 
     def __unicode__(self):
         return self.name
 
 class Subcategory(models.Model):
     name = models.CharField(max_length=30)
+    slug = models.SlugField(max_length=80, default="")
     category = models.ForeignKey(Category)
 
     def __unicode__(self):
@@ -51,10 +52,7 @@ class Product(TimeStampedActivate):
     seller = models.ForeignKey(Seller)
     slug = models.SlugField(max_length=80)
     publish_at = models.DateTimeField(default=datetime.datetime.now())
-    photo = ThumbnailerImageField(upload_to="products",
-			 blank=True,
-			 resize_source = {'size': [185, 185],
-			 'crop': 'smart'} ,)
+    photo = ThumbnailerImageField(upload_to="products", blank=True)
 
     def __unicode__(self):
         return self.name

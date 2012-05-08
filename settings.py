@@ -116,11 +116,18 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
+
     'apps.mainpage',
 
 	'south',
 	'easy_thumbnails',
 )
+
+THUMBNAIL_ALIASES = {
+	'': {
+		'small': {'size' : (185, 185), 'crop': 'smart'},
+	}
+}
 
 try:
     from locale_settings import *

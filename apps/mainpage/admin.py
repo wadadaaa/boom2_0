@@ -36,7 +36,12 @@ class ProductAdmin(admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
     pass
 
+class SubcategoryAdmin(admin.ModelAdmin):
+	list_display = ('__unicode__', )
+	prepopulated_fields = {"slug":("name",)}
+
 
 admin.site.register(Seller,SellerAdmin)
 admin.site.register(Product,ProductAdmin)
 admin.site.register(Category,CategoryAdmin)
+admin.site.register(Subcategory, SubcategoryAdmin)

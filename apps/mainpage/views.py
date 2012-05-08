@@ -15,3 +15,9 @@ def seller(request, slug):
     return render_to_response('main/index.html', {
     	'seller':seller
 	    }, context_instance=RequestContext(request))
+
+def category(request, slug):
+	products = Product.objects.filter(subcategory__slug=slug)
+	return render_to_response('category.html', {
+		'products': products, },
+		context_instance=RequestContext(request))

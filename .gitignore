@@ -2,3 +2,4 @@ boom2_0.db
 *.pyc
 pip-log.txt
 src/
+log/

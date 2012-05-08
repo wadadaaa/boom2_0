@@ -1,21 +1,14 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-        "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-    <title>{{ seller.name }}</title>
-</head>
-<body>
-        <h2>{{ seller.name }}</h2>
-        {{ seller.description|linebreaks }}
-          {% if sellers %}
-          <ul>
-              {% for seller in sellers %}
-              <li><a href="{% url seller seller.slug %}">{{ seller }}</a></li>
+{% extends "base.html" %}
+{% block title%} {{ seller.name }} {% endblock %}
+{% block body %}
+	<h2>{{ seller.name }}</h2>
+    {{ seller.description|linebreaks }}
+    {% if sellers %}
+    	<ul>
+       	{% for seller in sellers %}
+            	<li><a href="{% url seller seller.slug %}">{{ seller }}</a></li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock body %}
 
-              {% endfor %}
-          </ul>
-          {% endif %}
-
-
-</body>
-</html>
