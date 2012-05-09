@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+
+{% block body %}
+{% for product in products %}
+	{{ product.name }}
+	<img src="{{ product.photo|thumbnail_url:'small' }}" alt="" />
+{% endfor %}
+{% endblock %}

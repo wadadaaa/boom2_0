@@ -3,11 +3,10 @@ from django.http import HttpResponse
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 
-def main_index(request):
-    sellers = Seller.objects.all()
-    msg = "Showcase!!!"
-    return render_to_response('main/index.html',{
-    	'sellers':sellers,},
+def main(request):
+    products = Product.objects.all()
+    return render_to_response('main_page.html',{
+    	'products':products,},
 	    context_instance = RequestContext(request))
 
 def seller(request, slug):

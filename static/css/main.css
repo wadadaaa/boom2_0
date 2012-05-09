@@ -1,0 +1,111 @@
+/*PAGE*/
+  html, body {width:100%;height:100%;}
+  body {padding:0; margin:0;background: #faf7d5 url(../images/bgr/bgr.jpg) repeat-x 0 0;}
+
+/*DESIGN*/
+  a img{border:0;}
+
+/*NAVIGATION*/
+  a {color:#000000;text-decoration:underline;}
+  a:hover {text-decoration:none;}
+  :focus, a:active { outline: none; }
+  form :focus, form a:active { outline:1px dotted;}
+
+/*TAGS*/
+  html {font-size:100%;}
+  body {font:62.5%/1.5em "Trebuchet MS";color:#000000;}
+  table, td, th, ul, textarea, input, select {font: 1em/1.5em "Trebuchet MS";color:#000000;}
+  h1 {margin:0;padding:0;font: 1.5em/1.5em "Trebuchet MS";color:#000000;}
+  h2 {margin:0;padding:0;font:1.3em/1.5em "Trebuchet MS";color:#000000;}
+  h3 {margin:0;padding:0;font:1.2em/1.5em "Trebuchet MS";color:#000000;}
+  h4 {margin:0;padding:0;font:bold 1em/1.5em "Trebuchet MS";color:#000000;}
+  blockquote, q {margin:1em 0;padding:0;quotes: none;font-style:italic;}
+    blockquote:before, blockquote:after, q:before, q:after {content: '';content: none;}
+  dl, dt, dd, form {margin:0;padding: 0;}
+  hr {clear:both;height:1px;margin:1em 0;padding:0;background-color:#e54803;border:0 none;color:#e54803;}
+  input {margin:0;vertical-align:middle;}
+  p {margin:0 0 15px;padding:0;}
+  pre, code {display:block;margin:1em 0;padding:5px;overflow-x:auto;background-color:#fffaeb;border:1px dashed #e54803;font-family:"Lucida Console",monospace;}
+  select {vertical-align:middle;}
+  table {border-spacing:0;border-collapse: collapse;}
+  table td {padding:0;text-align:left;vertical-align:top;}
+  ul, ol {margin: 0;padding:10px 2em;}
+
+
+/*FONT*/
+  .table th {font-weight:bold;}
+  #wrapper {font-size:1.5em;line-height:1.5em;}
+
+/*MISC*/
+  .clearing {clear: both;height:0;font-size:0;overflow:hidden;}
+  .clearFix:after {content: '.';display: block;clear:both;visibility: hidden;height:0;font-size:0;}
+
+  /*AJAX LOADER*/
+    .ajax_loader {position:fixed;top:10px;left:50%; z-index:999;width:170px;margin:0 0 0 -90px;padding:13px 5px;background:#fefcd9;border:1px solid #dbdac0;text-align:center;}
+      .ajax_loader strong {padding:5px 0 5px 38px;background: url(../images/img/spinner.gif) no-repeat 0 center;}
+
+  /*FLASHBOX*/
+    .flashbox {position:fixed;top:10px;left:50%;z-index:4000;width:500px;margin:0 0 0 -270px;padding:0;background-color:#fefcd9;border:1px solid #dbdac0;}
+      .flashbox ul{margin:0;padding:0;list-style-type:none;}
+        .flashbox li {margin:0;padding:7px 50px 8px 20px;border-bottom:1px solid #dbdac0;position:relative;}
+        .flashbox li:last-child {border:0 none;}
+          .flashbox .close {position:absolute;right:6px;top:6px;cursor: pointer;margin:0;}
+
+  /*TABLE*/
+    .table {width:100%;margin:1em 0;padding:0;border:1px dotted #7D7D7D;border-width:1px 0;}
+      .table th {padding:0 5px 0 20px;border:1px dotted #7D7D7D;border-width:1px 0;text-align:left;}
+      .table td {padding:0 5px 2px 20px;border:1px dotted #7D7D7D;border-width:1px 0;}
+
+/*LAYOUT*/
+
+  /*=HEADER*/
+    #header {width:924px;margin:0 auto;padding:10px 30px 10px 0;color:#ffffff;}
+    #header:after {content: '.';display: block;clear:both;visibility: hidden;height:0;font-size:0;}
+      #header a {color:#ffffff;}
+      #header .main_menu {list-style-type:none;font-size:1.5em;}
+        #header .main_menu li {display:inline;margin-right:30px;}
+        #header .open_shop_link {float:right;}
+      #header .logo {float:left;margin-right:10px;}
+      #header .cart {float:left;width:340px;background:#85827f;margin-bottom:14px;padding:10px;font-size:1.3em;}
+
+  /*=CONTENT*/
+    #wrapper {position:relative;min-height:100%;height:100%;}
+      html>body #wrapper {height:auto;}
+      #main_col {width:894px;min-height:600px;margin:0 auto;padding:20px 30px 200px;background:#fff;}
+      #main_col:after {content: '.';display: block;clear:both;visibility: hidden;height:0;font-size:0;}
+
+      .products_list {padding:0;list-style-type:none;}
+      .products_list:after {content: '.';display: block;clear:both;visibility: hidden;height:0;font-size:0;}
+        .products_list li {display:-moz-inline-box;display:inline-block;width:205px;height:380px;margin-right:13px;margin-bottom:10px;}
+        .products_list li .info {color:#999;}
+          .products_list li .info a {color:#999;}
+
+      .pager {color:#666;text-align:center;}
+        .pager a {color:#666;}
+
+      .img_content {float:left;margin-right:30px;margin-bottom:10px;}
+
+      .products {padding:10px 0 30px;list-style-type:none;}
+      .products:after {content: '.';display: block;clear:both;visibility: hidden;height:0;font-size:0;}
+        .products li {float:left;margin-right:20px;margin-bottom:10px;}
+
+      .link {padding:2px 5px;background:#efe9e9;}
+
+  /*=FOOTER*/
+    #footer {position:absolute;left:0;bottom:0px;clear:both;width:100%;height:190px;background:url(../images/bgr/footer.png) repeat-x left bottom;}
+      #footer .footer_block {width:894px;margin:0 auto;padding:45px 30px 20px;}
+        #footer .categories_products {padding:0;list-style-type:none;}
+        #footer .categories_products:after {content: '.';display: block;clear:both;visibility: hidden;height:0;font-size:0;}
+          #footer .categories_products li {float:left;margin-right:10px;}
+            #footer .categories_products li a {position:relative;display:block;}
+            #footer .categories_products li .title {position:absolute;top:-25px;left:27px;z-index:5;display:none;background:#faf7d5;}
+            #footer .categories_products li a:hover .title {display:block;padding:0 5px 2px;}
+
+/*FORM*/
+  label {margin:0 15px 0 0;}
+  select{border:solid 1px #A5ACB2;width:248px;height:1.8em;}
+  textarea {width:248px;height:100px;margin-bottom:10px;background:#faf7d5;border:solid 1px #cccc99;}
+  .input {width:200px;height:1.3em;border:solid 1px #cccc99;}
+  .button {border:0;}
+  .search_form {float:left;margin-right:20px;margin-bottom:10px;}
+  .comments_form .button {border:1px solid #cccc99;}

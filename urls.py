@@ -8,7 +8,7 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'boom2_0.views.home', name='home'),
     # url(r'^boom2_0/', include('boom2_0.foo.urls')),
-    url(r'^$', 'apps.mainpage.views.main_index', name="home"),
+    url(r'^$', 'apps.mainpage.views.main', name="home"),
 	url(r'^category/(?P<slug>[-\w]+)$', 'apps.mainpage.views.category', name='category'),
     url(r'^seller/(?P<slug>[-\w]+)$', 'apps.mainpage.views.seller',name="seller"),
     # Uncomment the admin/doc line below to enable admin documentation:
