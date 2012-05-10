@@ -23,12 +23,56 @@
      Attention! You can open your shop free
 
      <a href="#"><img src="{{ STATIC_URL }}images/button/open_shop.png" alt="Open your shop" class="open_shop_link" /></a>
-	</div>
-	{% block header %}
+	 <ul class="main_menu">
+       <li><a href="#">Things</a></li>
+       <li><a href="#">All shops</a></li>
+       <li><a href="#">About projects</a></li>
+     </ul>
+{% block header %}
 	{% endblock header %}
+	</div>
 
 	{% block content %}
 	{% endblock content %}
-</div>
+
+    <div id="footer">
+      <div class="footer_block">
+        <ul class="categories_products">
+           <li>
+              <a href="#"><img src="{{ STATIC_URL }}images/img/category1.jpg" alt="" /><span class="title">Shoes</span></a>
+           </li>
+           <li>
+              <a href="#"><img src="{{ STATIC_URL }}images/img/category2.jpg" alt="" /><span class="title">Shoes</span></a>
+           </li>
+           <li>
+              <a href="#"><img src="{{ STATIC_URL }}images/img/category3.jpg" alt="" /><span class="title">Shoes</span></a>
+           </li>
+           <li>
+              <a href="#"><img src="{{ STATIC_URL }}images/img/category4.jpg" alt="" /><span class="title">Shoes</span></a>
+           </li>
+           <li>
+              <a href="#"><img src="{{ STATIC_URL }}images/img/category5.jpg" alt="" /><span class="title">Shoes</span></a>
+           </li>
+           <li>
+              <a href="#"><img src="{{ STATIC_URL }}images/img/category6.jpg" alt="" /><span class="title">Shoes</span></a>
+           </li>
+           <li>
+              <a href="#"><img src="{{ STATIC_URL }}images/img/category7.jpg" alt="" /><span class="title">Shoes</span></a>
+           </li>
+           <li>
+              <a href="#"><img src="{{ STATIC_URL }}images/img/category8.jpg" alt="" /><span class="title">Shoes</span></a>
+           </li>
+           <li>
+              <a href="#"><img src="{{ STATIC_URL }}images/img/category9.jpg" alt="" /><span class="title">Shoes</span></a>
+           </li>
+           <li>
+              <a href="#"><img src="{{ STATIC_URL }}images/img/category10.jpg" alt="" /><span class="title">Shoes</span></a>
+           </li>
+           <li>
+              <a href="#"><img src="{{ STATIC_URL }}images/img/category11.jpg" alt="" /><span class="title">Shoes</span></a>
+           </li>
+         </ul>
+      </div>
+    </div>
 </body>
 </html>

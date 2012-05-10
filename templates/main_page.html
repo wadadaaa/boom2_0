@@ -1,14 +1,11 @@
 {% extends "base.html" %}
 {% load thumbnail %}
-{% block body %}
-
+{% block content %}
      <ul class="main_menu">
        <li><a href="#">Things</a></li>
        <li><a href="#">All shops</a></li>
        <li><a href="#">About projects</a></li>
      </ul>
-
-    </div>
 
     <div id="main_col">
        <p><strong>Chilli Boom</strong> - the perfect place for lovers of Jolly things and a good shopping experience. Original gifts and designer toys, fashionable clothes and unusual footwear, stylish t-shirts and interesting bags, ideas for interior decoration and copyrights. And of course, special discounts!</p>
@@ -17,68 +14,12 @@
 	   {% for product in products %}
          <li>
             <a href="#"><img src="{{ product.photo|thumbnail_url:'small' }}" alt="{{ product.description }}" /></a>
-            <strong>{{ product.price }}
+            <strong>{{ product.price }} $
             <img src="{{ STATIC_URL }}images/icon/icon.png" alt="" />0</strong>
-            <div>{{ product.name }}</div>
+            <div> {{ product.name }} </div>
             <div class="info">{{ product.seller }}</div>
          </li>
-	   {% endfor %}
-       </ul>
-
-       <div class="pager">
-          <a href="#"> << </a>
-          <a href="#"> < </a>
-          <a href="#">1</a>
-          <strong>2</strong>
-          <a href="#">3</a>
-          <a href="#">4</a>
-          <a href="#">5</a>
-          <a href="#"> > </a>
-          <a href="#"> >> </a>
-       </div>
-
-    </div>
-
-
-    <div id="footer">
-      <div class="footer_block">
-        <ul class="categories_products">
-           <li>
-              <a href="#"><img src="{{ STATIC_URL }}images/img/category1.jpg" alt="" /><span class="title">Shoes</span></a>
-           </li>
-           <li>
-              <a href="#"><img src="{{ STATIC_URL }}images/img/category2.jpg" alt="" /><span class="title">Shoes</span></a>
-           </li>
-           <li>
-              <a href="#"><img src="{{ STATIC_URL }}images/img/category3.jpg" alt="" /><span class="title">Shoes</span></a>
-           </li>
-           <li>
-              <a href="#"><img src="{{ STATIC_URL }}images/img/category4.jpg" alt="" /><span class="title">Shoes</span></a>
-           </li>
-           <li>
-              <a href="#"><img src="{{ STATIC_URL }}images/img/category5.jpg" alt="" /><span class="title">Shoes</span></a>
-           </li>
-           <li>
-              <a href="#"><img src="{{ STATIC_URL }}images/img/category6.jpg" alt="" /><span class="title">Shoes</span></a>
-           </li>
-           <li>
-              <a href="#"><img src="{{ STATIC_URL }}images/img/category7.jpg" alt="" /><span class="title">Shoes</span></a>
-           </li>
-           <li>
-              <a href="#"><img src="{{ STATIC_URL }}images/img/category8.jpg" alt="" /><span class="title">Shoes</span></a>
-           </li>
-           <li>
-              <a href="#"><img src="{{ STATIC_URL }}images/img/category9.jpg" alt="" /><span class="title">Shoes</span></a>
-           </li>
-           <li>
-              <a href="#"><img src="{{ STATIC_URL }}images/img/category10.jpg" alt="" /><span class="title">Shoes</span></a>
-           </li>
-           <li>
-              <a href="#"><img src="{{ STATIC_URL }}images/img/category11.jpg" alt="" /><span class="title">Shoes</span></a>
-           </li>
-         </ul>
-      </div>
-    </div>
-
-  </div>
-{% endblock body %}
+		{% endfor %}
+		</ul>
+	</div>
+{% endblock content %}

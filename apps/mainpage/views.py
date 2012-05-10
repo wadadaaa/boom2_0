@@ -11,7 +11,7 @@ def main(request):
 
 def seller(request, slug):
     seller = get_object_or_404(Seller, slug=slug)
-    return render_to_response('main/index.html', {
+    return render_to_response('page.html', {
     	'seller':seller
 	    }, context_instance=RequestContext(request))
 
