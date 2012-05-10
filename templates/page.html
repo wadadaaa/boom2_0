@@ -1,27 +1,21 @@
 {% extends "base.html" %}
+{% load thumbnail %}
 {% block content %}
     <div id="main_col">
-      <h1>Созвездие снов shop</h1>
-      <a href="#">http://sozvezdiesnov.ru/</a>
+      <h1>{{ seller.name }}</h1>
+      <a href="{{ seller.website }}">{{ seller.website }}</a>
       <img src="images/img/logo_company.jpg" alt="Созвездие снов" class="img_content" />
-      <p>Стильное и красивое постельное белье на любой вкус! Оригинальные принты на постельном белье не оставят никого равнодушным! 	Предлагаем так же комплекты с вышивкой, кружевом и стразами! Еще больше оригинальных моделей на нашем сайте http://sozvezdiesnov.ru/</p>
+      <p>{{ seller.description }}</p>
 
       <h2>Last arrivals</h2>
       <a href="#" class="link">All things</a>
        <ul class="products">
+	   {% for product in products %}
          <li>
-            <a href="#"><img src="images/img/product3.jpg" alt="Картинка" /></a>
+            <a href="#"><img src="{{ product.photo|thumbnail_url:'small' }}" alt="{{ product.description }}" /></a>
          </li>
-         <li>
-            <a href="#"><img src="images/img/product3.jpg" alt="Картинка" /></a>
-         </li>
-         <li>
-            <a href="#"><img src="images/img/product3.jpg" alt="Картинка" /></a>
-         </li>
-         <li>
-            <a href="#"><img src="images/img/product3.jpg" alt="Картинка" /></a>
-         </li>
-       </ul>
+	  {% endfor %}
+	  </ul>
 
        <h2>Comments</h2>
        <strong>mti6</strong>
