@@ -39,6 +39,7 @@ class Seller(models.Model):
                                    help_text="Describe yourself.")
     user = models.ForeignKey(User, related_name="seller")
     slug = models.SlugField(max_length=80)
+    avatar = ThumbnailerImageField(upload_to="sellers", blank=True)
 
     def __unicode__(self):
         return self.name

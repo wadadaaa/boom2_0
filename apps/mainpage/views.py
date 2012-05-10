@@ -11,8 +11,10 @@ def main(request):
 
 def seller(request, slug):
     seller = get_object_or_404(Seller, slug=slug)
+    products = Product.objects.filter(seller__slug=slug)
     return render_to_response('page.html', {
-    	'seller':seller
+    	'seller':seller,
+		'products': products,
 	    }, context_instance=RequestContext(request))
 
 def category(request, slug):
