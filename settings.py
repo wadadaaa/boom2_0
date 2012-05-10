@@ -118,6 +118,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
 
     'apps.mainpage',
+    'apps.users',
 
 	'south',
 	'easy_thumbnails',
