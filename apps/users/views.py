@@ -8,7 +8,7 @@ from apps.users.forms import RegistrationForm
 def register(request):
 	if request.user.is_authenticated():
 		# They already have an account; don't let them register again
-		return render_to_response('register.html', {'has_account': True})
+		return render_to_response('user/register.html', {'has_account': True})
 	manipulator = RegistrationForm()
 	if request.POST:
 		new_data = request.POST.copy()
@@ -37,20 +37,49 @@ def register(request):
 				email_body,
 				'accounts@example.com',
 				[new_user.email])
-			return render_to_response('register.html', {'created': True})
+			return render_to_response('user/register.html', {'created': True})
 		else:
 			errors = new_data = {}
 			form = forms.FormWrapper(manipulator, new_data, errors)
-		    return render_to_response('register.html', {'form': form})
+		    return render_to_response('user/register.html', {'form': form})
 
 def confirm(request, activation_key):
     if request.user.is_authenticated():
-	    return render_to_response('confirm.html', {'has_account': True})
+	    return render_to_response('user/confirm.html', {'has_account': True})
 	user_profile = get_object_or_404(UserProfile,
 		activation_key=activation_key)
 	if user_profile.key_expires < datetime.datetime.today():
-		return render_to_response('confirm.html', {'expired': True})
+		return render_to_response('user/confirm.html', {'expired': True})
 	user_account = user_profile.user
 	user_account.is_active = True
 	user_account.save()
-	return render_to_response('confirm.html', {'success': True})
+	return render_to_response('user/confirm.html', {'success': True})
+
+def login(request):
+	if request.user.is_authenticated():
+		return render_to_response('user/login', {
+			'logged_in': True,
+		})
+	if request.POST:
+		data = request.POST.copy()
+		user = authenticate(username=data.username, password=data.password)
+		if user is not None:
+			if user.is_active:
+				login(request, user)
+				return render_to_response('user/login.html', {
+					'success': True, 
+				})
+			else:
+				return render_to_response('user/login.html', {
+					'disabled': True,
+				})
+		else:
+			return render_to_response('user/login.html', {
+				'incorrect': True,
+			})
+	else:
+		errors = data = {}
+		form = LoginForm()
+	return render_to_response('user/login.html', {
+		'form': form,
+	})
