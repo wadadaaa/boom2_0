@@ -28,9 +28,9 @@ def register(request):
 			new_profile.save()
 			# Send an email with the confirmation link                                                                                                                      
 			email_subject = 'Your new example.com account confirmation'
-			email_body = "Hello, %s, and thanks for signing up for an \                                                                                                     
-						example.com account!\n\nTo activate your account, click this link within 48 \                                                                                               
-						hours:\n\nhttp://example.com/accounts/confirm/%s" % (
+			email_body = """Hello, %s, and thanks for signing up for an \                                                             
+						example.com account!\n\nTo activate your account, click this link within 48 \
+						hours:\n\nhttp://example.com/accounts/confirm/%s""" % (
 							new_user.username,
 							new_profile.activation_key)
 			send_mail(email_subject,
@@ -41,11 +41,11 @@ def register(request):
 		else:
 			errors = new_data = {}
 			form = forms.FormWrapper(manipulator, new_data, errors)
-		    return render_to_response('user/register.html', {'form': form})
+			return render_to_response('user/register.html', {'form': form})
 
 def confirm(request, activation_key):
-    if request.user.is_authenticated():
-	    return render_to_response('user/confirm.html', {'has_account': True})
+	if request.user.is_authenticated():
+			return render_to_response('user/confirm.html', {'has_account': True})
 	user_profile = get_object_or_404(UserProfile,
 		activation_key=activation_key)
 	if user_profile.key_expires < datetime.datetime.today():

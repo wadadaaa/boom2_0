@@ -2,7 +2,7 @@ from django import forms
 from django.core import validators
 from django.contrib.auth.models import User
  
-class RegistrationForm(forms.Manipulator):
+class RegistrationForm(forms.Form):
 	def __init__(self):
 		self.fields = (
 			forms.TextField(field_name='username',

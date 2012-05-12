@@ -11,6 +11,10 @@ urlpatterns = patterns('',
     url(r'^$', 'apps.mainpage.views.main', name="home"),
 	url(r'^category/(?P<slug>[-\w]+)$', 'apps.mainpage.views.category', name='category'),
     url(r'^seller/(?P<slug>[-\w]+)$', 'apps.mainpage.views.seller',name="seller"),
+
+	url(r'^user/login/$', 'apps.users.views.login', name='login'),
+	url(r'^user/register/$', 'apps.users.views.register', name='register'),
+	url(r'^user/confirm/(?P<activation_key>[-\w\d]+)$', 'apps.users.views.confirm', name='confirm'),
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
