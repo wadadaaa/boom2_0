@@ -118,11 +118,14 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
 
     'apps.mainpage',
-    'apps.users',
+    #'apps.users',
 
 	'south',
 	'easy_thumbnails',
+	'registration',
 )
+
+ACCOUNT_ACTIVATION_DAYS = 2
 
 THUMBNAIL_ALIASES = {
 	'': {

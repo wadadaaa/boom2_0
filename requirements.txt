@@ -1,4 +1,4 @@
 django
 south
 -e git+git://github.com/SmileyChris/easy-thumbnails.git#egg=easy_thumbnails
-
+-e git+git://github.com/nathanborror/django-registration.git#egg=django-registration

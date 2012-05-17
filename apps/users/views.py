@@ -1,6 +1,8 @@
 import datetime, random, sha
 from django.shortcuts import render_to_response, get_object_or_404
 from django.core.mail import send_mail
+from django.template import RequestContext
+from django import forms
 
 from apps.users.models import UserProfile
 from apps.users.forms import RegistrationForm
@@ -8,7 +10,8 @@ from apps.users.forms import RegistrationForm
 def register(request):
 	if request.user.is_authenticated():
 		# They already have an account; don't let them register again
-		return render_to_response('user/register.html', {'has_account': True})
+		return render_to_response('user/register.html', {'has_account': True},
+			context_instance=RequestContext(request))
 	manipulator = RegistrationForm()
 	if request.POST:
 		new_data = request.POST.copy()
@@ -37,11 +40,17 @@ def register(request):
 				email_body,
 				'accounts@example.com',
 				[new_user.email])
-			return render_to_response('user/register.html', {'created': True})
+			return render_to_response('user/register.html', {'created': True},
+				context_instance=RequestContext(request))
 		else:
-			errors = new_data = {}
-			form = forms.FormWrapper(manipulator, new_data, errors)
-			return render_to_response('user/register.html', {'form': form})
+			return render_to_response('user/register.html', {'errors': errors},
+				context_instance=RequestContext(request))
+
+	else:
+		errors = new_data = {}
+		form = manipulator
+		return render_to_response('user/register.html', {'form': form}, 
+			context_instance=RequestContext(request))
 
 def confirm(request, activation_key):
 	if request.user.is_authenticated():
